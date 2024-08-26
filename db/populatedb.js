@@ -14,16 +14,12 @@ categoryid  INTEGER REFERENCES categories(id)
 );`
 
 
+
 async function main() {
-    const client = new Client({
-        host: process.env.PGHOST,
-        user: process.env.PGUSER,
-        password: process.env.PGPASSWORD,
-        database: process.env.PGDATABASE,
-        port: process.env.PGPORT
-    });
+    const client = new Client({ connectionString: process.env.DATABASE_URL });
     await client.connect();
     await client.query(SQL);
+    await client.query(TESTSQL);
     await client.end();
 }
 

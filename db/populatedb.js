@@ -23,7 +23,13 @@ const TESTSQL = `INSERT INTO items (title,description,price,quantity,categoryid)
 ('CANON EF 50mm f/1.8 LENS','The lightest Canon EF lens, with 50mm focal length and f/1.8,this lens is a budget lens of great quality!',139,5,(SELECT id FROM categories WHERE title='Camera Lenses'));`
 
 async function main() {
-    const client = new Client({ connectionString: process.env.DATABASE_URL });
+    const client = new Client({
+        host: process.env.PGHOST,
+        user: process.env.PGUSER,
+        password: process.env.PGPASSWORD,
+        database: process.env.PGDATABASE,
+        port: process.env.PGPORT
+    });
     await client.connect();
     await client.query(SQL);
     await client.query(TESTSQL);

@@ -5,7 +5,10 @@
     <br>
     <h1 class="text-center">Available Categories</h1>
     <% if(categories.length===0){%>
-        <p>No categories available </p>
+        <div class="text-center">
+            <p>No categories available </p>
+        </div>
+
         <% } else { %>
             <ul class="list-group text-center mb-3">
                 <% categories.forEach((category)=>{ %>

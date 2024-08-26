@@ -14,5 +14,5 @@ app.get("/", (req, res) => {
 })
 app.use("/categories", categoriesRouter);
 app.use("/items", itemsRouter);
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`inventory management app running on port ${PORT}`));

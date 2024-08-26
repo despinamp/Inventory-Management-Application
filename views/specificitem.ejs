@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+
+<%- include('partials/header.ejs') %>
+
+    <body>
+
+        <br>
+        <div class="card mx-auto" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= item[0].title %>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted"> Category:<a
+                        class=" link-dark link-underline-opacity-0  link-underline-opacity-100-hover"
+                        href="/categories/<%=item[0].categoryid%>">
+                        <%= categoryTitle %>
+                    </a> <br> Price: <%= item[0].price %> €<br> Quantity: <%= item[0].quantity %>
+                </h6>
+                <p class="card-text">
+                    <%= item[0].description %>
+                </p>
+                <form action="/items/deleteitem/<%=itemId %>" method="POST" style="display:inline;">
+                    <button onclick="location.href='/items/updateitem/<%=itemId %>'" type="button"
+                        class="btn btn-dark">Update
+                        Item</button>
+                    <button type="submit" class="btn btn-dark"
+                        onclick="return confirm('Are you sure you want to delete this item?');">Delete
+                        Item</button>
+
+
+                </form>
+            </div>
+        </div>
+
+
+
+    </body>
+
+    </html>

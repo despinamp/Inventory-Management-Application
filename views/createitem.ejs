@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<style>
+    .custom-height {
+        height: 80px;
+    }
+</style>
+
+
+<%- include('partials/header.ejs') %>
+
+    <body>
+
+        <%- include('partials/errors.ejs') %>
+            <h2 class="text-center">Create a new item</h2>
+            <div class="container">
+                <form action="/items/additem" method="POST">
+                    <div class="mb-2">
+                        <label for="itemTitle" class="form-label">Item Title</label>
+                        <input type="text" name="itemTitle" id="itemTitle" class="form-control" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="itemDescription" class="form-label">Item Description</label>
+                        <textarea name="itemDescription" id="itemDescription" class="form-control custom-height"
+                            required></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="itemPrice" class="form-label">Item Price (in Euros) </label>
+                        <input type="number" step="0.01" name="itemPrice" id="itemPrice" class="form-control" min=1
+                            required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="itemQuantity" class="form-label">Item Quantity</label>
+                        <input type="number" name="itemQuantity" id="itemQuantity" class="form-control" min=0 required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="itemCategory" class="form label">Item Category</label>
+                        <select id="itemCategory" name="itemCategory" class="form-select" required>
+                            <option value="">select a category</option>
+                            <% categories.forEach((category)=>{%>
+                                <option value=<%=category.id%>>
+                                    <%=category.title %>
+                                </option>>
+                                <% }); %>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark">Create Item</button>
+                </form>
+
+            </div>
+
+    </body>
+
+    </html>

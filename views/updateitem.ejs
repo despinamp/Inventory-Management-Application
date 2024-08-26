@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('partials/header.ejs') %>
+
+    <body>
+
+        <%- include('partials/errors.ejs') %>
+            <h2 class="text-center">Update item</h2>
+            <div class="container">
+                <form action="/items/updateitem/<%=itemId%>" method="POST">
+                    <div class="mb-2">
+                        <label for="itemTitle" class="form-label">Item Title</label>
+                        <input type="text" name="itemTitle" id="itemTitle" class="form-control"
+                            value="<%=item[0].title%>" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="itemDescription" class="form-label">Item Description</label>
+                        <textarea name="itemDescription" id="itemDescription" class="form-control custom-height"
+                            required><%=item[0].description%></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="itemPrice" class="form-label">Item Price (in Euros) </label>
+                        <input type="number" name="itemPrice" id="itemPrice" class="form-control"
+                            value="<%=item[0].price%>" min=1 required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="itemQuantity" class="form-label">Item Quantity</label>
+                        <input type="number" name="itemQuantity" id="itemQuantity" class="form-control" min=0
+                            value="<%=item[0].quantity%>" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="itemCategory" class="form label">Item Category</label>
+                        <select id="itemCategory" name="itemCategory" class="form-select">
+                            <% categories.forEach((category)=>{
+                                if(category.id===item[0].categoryid){%>
+                                <option value=<%=category.id%> selected>
+                                    <%=category.title %>
+                                </option>> <%} else{%>
+                                    <option value=<%=category.id%>>
+                                        <%=category.title %>
+                                    </option>> <%}%>
+                                        <% }); %>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark">Update Item</button>
+                </form>
+
+            </div>
+
+    </body>
+
+</html>

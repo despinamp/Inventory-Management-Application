@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+
+<%- include('partials/header.ejs') %>
+
+    <body>
+
+        <%- include('partials/errors.ejs') %>
+            <br>
+            <h2 class="text-center">Create a new category</h1>
+                <div class="container">
+                    <form action="/categories/addcategory" method="POST">
+                        <div class="mb-2">
+                            <label for="categoryTitle" class="form-label">Category Title</label>
+                            <input type="text" name="categoryTitle" id="categoryTitle" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Create Category</button>
+                    </form>
+                </div>
+
+    </body>
+
+    </html>

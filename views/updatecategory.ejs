@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+
+<%- include('partials/header.ejs') %>
+
+    <body>
+
+        <%- include('partials/errors.ejs') %>
+            <br>
+            <h2 class="text-center">Update category</h1>
+                <div class="container">
+                    <form action="/categories/updatecategory/<%=categoryId%>" method="POST">
+                        <div class="mb-2">
+                            <label for="categoryTitle" class="form-label">Category Title</label>
+                            <input type="text" name="categoryTitle" id="categoryTitle" class="form-control"
+                                value="<%=category[0].title%>" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Update Category</button>
+                    </form>
+                </div>
+
+
+    </body>
+
+</html>

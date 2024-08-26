@@ -4,9 +4,9 @@ const titleLengthErr = "must be between 1 and 100 characters!"
 const descrLengthErr = "must be between 1 and 800 characters!"
 const validateItem = [
     body("itemTitle").trim()
-        .isLength({ min: 1, max: 100 }).withMessage((value, { req }) => `Item title ${titleLengthErr}. Received ${value.length} characters ${value}`),
+        .isLength({ min: 1, max: 50 }).withMessage((value, { req }) => `Item title ${titleLengthErr}.`),
     body("itemDescription").trim()
-        .isLength({ min: 1, max: 800 }).withMessage((value, { req }) => `Item description ${descrLengthErr}.Received ${value.length} characters ${value}`)
+        .isLength({ min: 1, max: 500 }).withMessage((value, { req }) => `Item description ${descrLengthErr}.`)
         .escape()
 
 ]

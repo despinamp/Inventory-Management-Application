@@ -10,5 +10,6 @@ Technologies used: <br/>
 - PostgreSQL for the database <br/>
 - Bootstrap for the frontend <br/>
 
+Project for The Odin Project
 
 
